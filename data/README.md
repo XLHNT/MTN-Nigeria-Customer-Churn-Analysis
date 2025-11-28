@@ -11,8 +11,8 @@
 
 **Business Challenge:** MTN Nigeria, one of Africa's leading telecommunications providers, experienced increasing customer churn threatening revenue stability in Nigeria's highly competitive telecom market with 4 major operators.
 
-**My Role:** Data Analyst | **Duration:** 4 weeks  
-**Tools:** Microsoft SQL Server, Excel, Data Visualization
+**My Role:** Data Analyst | **Duration:** 2 weeks  
+**Tools:** Microsoft SQL Server, Power BI
 
 ###  Project Impact
 
@@ -881,7 +881,7 @@ mtn-nigeria-churn-analysis/
 ### Technical Competencies
 
 **Database & Query Languages:**
--  Advanced SQL (Microsoft SQL Server T-SQL)
+-  Advanced SQL (Microsoft SQL Server)
 -  Complex aggregations and joins
 -  Window functions and CTEs
 -  Statistical analysis in SQL
@@ -895,10 +895,10 @@ mtn-nigeria-churn-analysis/
 -  Predictive indicator identification
 
 **Data Visualization:**
--  Executive dashboard design
--  Chart selection for insights
--  Visual storytelling
--  Multi-audience communication
+-  Power BI dashboard design
+-  DAX measures and calculated columns
+-  Interactive visual storytelling
+-  Executive-ready reporting
 
 ---
 
