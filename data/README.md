@@ -1,4 +1,4 @@
-#  MTN Nigeria Customer Churn Analysis
+#   MTN Nigeria Customer Churn Analysis
 ### Reducing Customer Attrition Through Data-Driven Intelligence
 
 ![Project Status](https://img.shields.io/badge/Status-Complete-success)
@@ -35,6 +35,7 @@
 - [Repository Structure](#-repository-structure)
 - [How to Use](#-how-to-use-this-repository)
 - [Skills Demonstrated](#-skills-demonstrated)
+- [Connect With Me](#-connect-with-me)
 
 ---
 
@@ -303,7 +304,7 @@ I developed an **8-dimensional analytical framework** to comprehensively underst
 
 ---
 
-##   Key Findings
+##  Key Findings
 
 ### Finding 1: Geographic Churn Concentration 
 
@@ -853,13 +854,13 @@ mtn-nigeria-churn-analysis/
 ---
 
 ### For Data Analysts & Technical Reviewers
-  **Technical assessment:**
+ **Technical assessment:**
 1. Review [SQL queries](sql/) for code quality
 2. Check [methodology documentation](analysis/methodology.md)
 3. Examine [data dictionary](data/data_dictionary.md) for thoroughness
 4. Assess [schema design](data/schema.sql)
 
-  **Reproducibility check:**
+ **Reproducibility check:**
 5. Load dataset from [data/](data/)
 6. Run queries in sequence
 7. Compare outputs with [results/](results/)
@@ -867,7 +868,7 @@ mtn-nigeria-churn-analysis/
 ---
 
 ### For Business Stakeholders
-  **Decision-making:**
+ **Decision-making:**
 1. Download [Executive Summary PDF](analysis/executive_summary.pdf)
 2. Review [ROI-justified recommendations](analysis/recommendations.md)
 3. View [impact visualizations](visualizations/)
@@ -875,7 +876,7 @@ mtn-nigeria-churn-analysis/
 
 ---
 
-##   Skills Demonstrated
+##  Skills Demonstrated
 
 ### Technical Competencies
 
@@ -945,19 +946,27 @@ mtn-nigeria-churn-analysis/
 ##  Project Outcomes & Impact
 
 ### Analytical Deliverables
- **- 8 comprehensive SQL analysis modules** covering all churn dimensions  
- **- 50+ actionable insights** identified and documented  
- **- 12 prioritized recommendations** with ROI estimates  
- **- Executive dashboard** for ongoing monitoring  
- **- Reproducible analytical framework** for continuous use
+ **8 comprehensive SQL analysis modules** covering all churn dimensions  
+ **50+ actionable insights** identified and documented  
+ **12 prioritized recommendations** with ROI estimates  
+ **Executive dashboard** for ongoing monitoring  
+ **Reproducible analytical framework** for continuous use
 
 ### Business Impact
- **- Revenue at Risk Quantified:** Comprehensive financial impact assessment  
- **- High-Risk Segments Identified:** 45% of churn concentrated in specific profiles  
- **- 15-20% Churn Reduction Pathway:** Data-driven intervention roadmap  
- **- 3 Ready-to-Deploy Campaigns:** Immediate action opportunities  
- **- Ongoing Monitoring Framework:** Sustainable churn intelligence system
+ **Revenue at Risk Quantified:** Comprehensive financial impact assessment  
+ **High-Risk Segments Identified:** 45% of churn concentrated in specific profiles  
+ **15-20% Churn Reduction Pathway:** Data-driven intervention roadmap  
+ **3 Ready-to-Deploy Campaigns:** Immediate action opportunities  
+ **Ongoing Monitoring Framework:** Sustainable churn intelligence system
 
 ### Technical Achievements
  **Advanced SQL Mastery:** CTEs, window functions, statistical analysis  
  **Multi-Dimensional Segmentation**
+
+
+ ##  Let's Connect
+
+Interested in discussing this project or exploring opportunities?
+
+ **Email:** xcelisuekebho@gmail.com    
+ **WhatsApp:** +234-814-802-9296
