@@ -21,7 +21,12 @@ All visualizations follow these principles:
 
   ##  Interactive Power BI Dashboard
 
-###  [**DOWNLOAD POWER BI DASHBOARD (.pbix)**](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/refs/heads/main/data/visualizations/MTN%20Nigeria%20Customer%20Churn.pbix)
+  ### [**VIEW LIVE DASHBOARD ONLINE**](https://app.powerbi.com/links/8-S8RimuXt?ctid=b61d2979-8126-486f-b13f-5007573345f0&pbi_source=linkShare)
+*No download required - view in browser*
+
+###   [**DOWNLOAD POWER BI DASHBOARD (.pbix)**](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/refs/heads/main/data/visualizations/MTN%20Nigeria%20Customer%20Churn.pbix)
+*For Power BI Desktop - full interactivity*
+
 
 **Requirements:** [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Free download from Microsoft)
 
