@@ -24,7 +24,7 @@
 
   ###   [**→ VIEW INTERACTIVE POWER BI DASHBOARD**](visualizations/)
 
-  [Download Dashboard (.pbix)](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/main/visualizations/your-filename.pbix) |  
+  [Download Dashboard (.pbix)](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/main/visualizations/your-filename.pbix)    
   [View Screenshots](visualizations/)
 
 ---
