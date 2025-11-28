@@ -628,6 +628,20 @@ I developed an **8-dimensional analytical framework** to comprehensively underst
 
 ##  Technical Highlights
 
+### Interactive Power BI Dashboard
+
+  [Download Dashboard File →](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/refs/heads/main/data/visualizations/MTN%20Nigeria%20Customer%20Churn.pbix)
+
+**Dashboard Features:**
+- Real-time KPI tracking
+- Interactive filters and slicers
+- Geographic heatmap of Nigerian states
+- Demographic drill-through
+- Cross-visual filtering
+- Mobile-optimized layout
+
+**Power BI Components:**
+
 ### Advanced SQL Techniques Demonstrated
 
 #### 1. Complex Common Table Expressions (CTEs)
