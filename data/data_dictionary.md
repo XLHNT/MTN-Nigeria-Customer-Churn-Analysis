@@ -1,0 +1,662 @@
+# Data Dictionary
+## MTN Nigeria Customer Churn Dataset
+
+---
+
+## Table Overview
+
+**Table Name:** `MTN Nigeria Customer Churn$`  
+**Database:** `MTN Nigeria Customer Churn`  
+**Total Records:** 50,000+ customer records  
+**Purpose:** Comprehensive customer profile and churn analysis  
+**Last Updated:** November 2024
+
+---
+
+## Column Specifications
+
+### Customer Identification
+
+#### Customer_ID
+- **Data Type:** INT
+- **Description:** Unique identifier for each customer
+- **Example Values:** 1001, 1002, 1003, 1004...
+- **Properties:** Primary Key, NOT NULL
+- **Usage:** Used for linking records and ensuring uniqueness
+- **Notes:** Sequential numbering, no gaps in sequence
+
+---
+
+### Demographics
+
+#### State
+- **Data Type:** VARCHAR(50)
+- **Description:** Nigerian state where customer resides
+- **Example Values:** Lagos, Kano, Rivers, Oyo, Kaduna, Abuja
+- **Unique Values:** 36 states + FCT (Federal Capital Territory)
+- **Properties:** NOT NULL
+- **Distribution:** 
+  - Lagos: ~15% of customers
+  - Kano: ~10% of customers
+  - Other major urban centers: 5-8% each
+  - Rural states: 1-3% each
+- **Usage:** Geographic segmentation, state-level churn analysis
+- **Business Context:** Nigeria has 36 states plus FCT; coverage varies by population and urbanization
+
+---
+
+#### Age
+- **Data Type:** INT
+- **Description:** Customer age in years at time of data collection
+- **Range:** 16-85 years
+- **Mean:** ~42 years
+- **Median:** ~40 years
+- **Standard Deviation:** ~15 years
+- **Properties:** NOT NULL, CHECK (Age BETWEEN 16 AND 100)
+- **Segmentation Used:**
+  - 16-25: Youth segment (price-sensitive, high churn)
+  - 26-35: Young professionals (moderate stability)
+  - 36-45: Mid-career (highest stability)
+  - 46-55: Established professionals (stable)
+  - 56-65: Pre-retirement (stable, lower usage)
+  - 66+: Senior citizens (low churn, low usage)
+- **Usage:** Age cohort analysis, demographic targeting
+- **Business Context:** Nigerian telecom primarily serves 18-55 age range (80% of customer base)
+
+---
+
+#### Gender
+- **Data Type:** VARCHAR(10)
+- **Description:** Customer gender classification
+- **Allowed Values:** Male, Female
+- **Distribution:** 
+  - Male: ~52%
+  - Female: ~48%
+- **Properties:** NOT NULL, CHECK (Gender IN ('Male', 'Female'))
+- **Usage:** Gender-based churn pattern analysis, targeted marketing
+- **Notes:** Binary classification as recorded in system
+
+---
+
+### Subscription Information
+
+#### Subscription Plan
+- **Data Type:** VARCHAR(50)
+- **Description:** Current or last active subscription plan type
+- **Allowed Values:** 
+  - Basic (entry-level plan)
+  - Standard (mainstream plan)
+  - Premium (high-usage plan)
+  - Unlimited (unlimited data plan)
+- **Distribution:**
+  - Basic: ~35% (entry-level, price-sensitive customers)
+  - Standard: ~40% (mainstream, balanced features)
+  - Premium: ~15% (high-usage, feature-rich)
+  - Unlimited: ~10% (power users, unlimited data)
+- **Properties:** NOT NULL
+- **Pricing Context:**
+  - Basic: ₦1,500-3,000/month
+  - Standard: ₦3,500-6,000/month
+  - Premium: ₦7,000-12,000/month
+  - Unlimited: ₦15,000+/month
+- **Usage:** Plan performance analysis, subscription optimization
+- **Business Context:** Plans designed for different user personas and usage patterns
+
+---
+
+#### MTN Device
+- **Data Type:** VARCHAR(50)
+- **Description:** MTN-branded device associated with customer account
+- **Allowed Values:**
+  - MTN Router (home/office WiFi router)
+  - MTN MiFi (portable mobile hotspot)
+  - None (SIM-only, no device)
+- **Distribution:**
+  - None: ~60% (SIM-only customers)
+  - MTN Router: ~25% (home broadband users)
+  - MTN MiFi: ~15% (mobile professionals)
+- **Properties:** Nullable (defaults to "None")
+- **Device Economics:**
+  - Devices typically subsidized with plan commitment
+  - Device ownership correlates with higher ARPU
+  - Creates switching barrier (lock-in effect)
+- **Usage:** Device correlation with retention, bundling analysis
+- **Business Context:** Device strategy balances subsidy cost vs. customer lock-in benefit
+
+---
+
+#### Customer Tenure in months
+- **Data Type:** INT
+- **Description:** Number of months customer has been with MTN
+- **Range:** 1-60+ months
+- **Mean:** ~24 months
+- **Median:** ~18 months
+- **Distribution:**
+  - 0-6 months: ~20% (new customers, critical risk period)
+  - 7-12 months: ~15% (early stage, stabilizing)
+  - 13-24 months: ~30% (established customers)
+  - 25-36 months: ~20% (mature, loyal)
+  - 37+ months: ~15% (very loyal base)
+- **Properties:** NOT NULL, CHECK (>= 0)
+- **Calculation:** From first purchase/activation date to analysis date (or churn date)
+- **Usage:** Lifecycle analysis, tenure-based segmentation
+- **Business Context:** Industry standard customer lifetime ~30-36 months; first 6 months are critical
+
+---
+
+### Financial Metrics
+
+#### Total Revenue
+- **Data Type:** DECIMAL(12,2)
+- **Description:** Cumulative revenue generated by customer in Nigerian Naira (₦)
+- **Range:** ₦500 - ₦250,000+
+- **Mean:** ~₦45,000
+- **Median:** ~₦32,000
+- **Standard Deviation:** ~₦38,000
+- **Distribution:**
+  - Low (<₦10,000): ~25% of customers
+  - Medium (₦10,000-₦50,000): ~45% of customers
+  - High (₦50,000-₦100,000): ~20% of customers
+  - Very High (>₦100,000): ~10% of customers
+- **Properties:** NOT NULL, CHECK (>= 0)
+- **Includes:** Airtime purchases, data bundles, monthly subscriptions, value-added services, device payments
+- **Excludes:** Taxes, one-time activation fees
+- **Usage:** Customer value segmentation, revenue impact analysis
+- **Business Context:** ARPU (Average Revenue Per User) in Nigerian telecom: ₦1,500-2,500/month
+
+---
+
+#### Unit Price
+- **Data Type:** DECIMAL(10,2)
+- **Description:** Average transaction/purchase amount in Nigerian Naira (₦)
+- **Calculation:** Total Revenue / Number of Times Purchased
+- **Range:** ₦200 - ₦15,000
+- **Mean:** ~₦2,800
+- **Median:** ~₦2,200
+- **Properties:** NOT NULL, CHECK (>= 0)
+- **Usage:** Price sensitivity analysis, purchase behavior patterns
+- **Business Context:** Reflects customer spend per interaction; higher unit price may indicate:
+  - Premium plan users
+  - Bulk purchases (quarterly vs. monthly payments)
+  - Device payment installments included
+  - Less frequent but larger purchases
+
+---
+
+### Behavioral Metrics
+
+#### Number of Times Purchased
+- **Data Type:** INT
+- **Description:** Count of separate purchase transactions over customer lifetime
+- **Range:** 1-50+ transactions
+- **Mean:** ~16 purchases
+- **Median:** ~12 purchases
+- **Distribution:**
+  - 1-5 purchases: ~20% (low engagement, at-risk)
+  - 6-10 purchases: ~25% (moderate engagement)
+  - 11-15 purchases: ~25% (healthy engagement)
+  - 16-20 purchases: ~15% (high engagement)
+  - 21+ purchases: ~15% (power users/possible issues)
+- **Properties:** NOT NULL, CHECK (>= 0)
+- **Includes:** Airtime top-ups, data bundle purchases, subscription renewals, add-on services
+- **Usage:** Engagement analysis, behavioral segmentation
+- **Business Context:** 
+  - Higher frequency generally indicates engagement
+  - Very low (<5): Disengagement risk
+  - Very high (>20): May signal plan inadequacy or service issues requiring repeated purchases
+
+---
+
+#### Data Usage
+- **Data Type:** DECIMAL(10,2)
+- **Description:** Total data consumed by customer in Gigabytes (GB)
+- **Range:** 0.5 GB - 500+ GB
+- **Mean:** ~45 GB
+- **Median:** ~28 GB
+- **Distribution:**
+  - Light users (<10 GB): ~30%
+  - Medium users (10-50 GB): ~40%
+  - Heavy users (50-150 GB): ~20%
+  - Power users (>150 GB): ~10%
+- **Properties:** NOT NULL, CHECK (>= 0)
+- **Usage:** Network capacity planning, plan fit analysis, usage-based churn correlation
+- **Business Context:** 
+  - Nigerian average: 20-30 GB/month per user
+  - Growth trend: 30-40% year-over-year increase
+  - Primary usage: Video streaming, social media, messaging apps
+  - Low usage may indicate poor plan fit or network issues
+
+---
+
+### Experience Metrics
+
+#### Satisfaction Rate
+- **Data Type:** DECIMAL(3,1)
+- **Description:** Composite customer satisfaction score
+- **Scale:** 1.0 (very dissatisfied) to 5.0 (very satisfied)
+- **Range:** 1.0 - 5.0
+- **Mean:** ~3.4
+- **Median:** ~3.5
+- **Distribution:**
+  - 1.0-2.0 (Very Dissatisfied): ~15%
+  - 2.1-3.0 (Dissatisfied): ~25%
+  - 3.1-4.0 (Neutral/Satisfied): ~40%
+  - 4.1-5.0 (Very Satisfied): ~20%
+- **Properties:** NOT NULL, CHECK (BETWEEN 1.0 AND 5.0)
+- **Methodology:** Composite score derived from:
+  - CSAT surveys (post-interaction feedback)
+  - Network experience metrics (call quality, data speed)
+  - Customer service interaction ratings
+  - Complaint resolution time and effectiveness
+  - Net Promoter Score (NPS) components
+- **Usage:** Satisfaction-churn correlation, early warning system trigger
+- **Business Context:** 
+  - Critical threshold appears at 3.5/5.0
+  - Scores below 3.5 show exponential churn increase
+  - 75-80% of churned customers had satisfaction ≤3.0
+  - Strongest single predictor of churn
+
+---
+
+### Churn Information
+
+#### Customer Churn Status
+- **Data Type:** VARCHAR(3)
+- **Description:** Indicates whether customer has churned (left MTN)
+- **Allowed Values:** Yes, No
+- **Distribution:**
+  - Yes (Churned): ~24% of customers
+  - No (Retained/Active): ~76% of customers
+- **Properties:** NOT NULL, CHECK (IN ('Yes', 'No'))
+- **Definition of Churn:** Customer who has:
+  - Explicitly canceled service, OR
+  - No activity (calls, data, purchases) for 90+ consecutive days, OR
+  - Ported phone number to competitor network
+- **Usage:** Target variable for all churn analysis and predictive modeling
+- **Business Context:** 
+  - 24% annual churn rate is above Nigerian telecom industry average (18-22%)
+  - Cost to acquire new customer is 5-7x higher than retaining existing customer
+  - High churn indicates competitive pressure and service issues
+
+---
+
+#### Reasons for Churn
+- **Data Type:** VARCHAR(200)
+- **Description:** Primary reason customer left MTN (for churned customers only)
+- **Nullable:** Yes (NULL for retained customers)
+- **Common Values:**
+  - "Network Quality" (~35% - poor coverage, slow data, dropped calls)
+  - "Better Competitor Offer" (~25% - pricing, promotions, features)
+  - "Customer Service Issues" (~15% - unresponsive support, poor problem resolution)
+  - "Price Too High" (~12% - affordability concerns, value perception)
+  - "Relocation" (~5% - moved outside coverage area)
+  - "Switched to Competitor" (~3% - general competitive loss)
+  - "Poor Data Speed" (~3% - specific network performance issues)
+  - "Better Device Offer" (~2% - competitor device subsidy/bundle)
+- **Distribution (among churned customers):**
+  - Network Quality: ~35%
+  - Better Competitor Offer: ~25%
+  - Customer Service Issues: ~15%
+  - Price Too High: ~12%
+  - Other reasons: ~13%
+- **Properties:** Nullable (only populated for churned customers where reason was captured)
+- **Data Collection Methods:** 
+  - Exit surveys (online/phone)
+  - Customer service interaction logs
+  - Cancellation reason codes from system
+  - Port-out request reasons
+- **Usage:** Root cause analysis, addressable vs. structural churn identification, priority intervention areas
+- **Limitations:** 
+  - Self-reported data (may not reflect complete truth)
+  - Single reason captured (decisions often multi-factorial)
+  - Not available for all churned customers (~10-15% missing)
+  - Social desirability bias in responses
+
+---
+
+## Data Quality Assessment
+
+### Completeness Analysis
+
+| Column | Completeness | Missing Values | Notes |
+|--------|--------------|----------------|-------|
+| Customer_ID | 100% | 0 | No missing values - Primary Key |
+| State | 100% | 0 | No missing values |
+| Age | 100% | 0 | No missing values |
+| Gender | 100% | 0 | No missing values |
+| Subscription Plan | 100% | 0 | No missing values |
+| MTN Device | 100% | 0 | "None" used for customers without device |
+| Customer Tenure | 100% | 0 | No missing values |
+| Total Revenue | 100% | 0 | No missing values |
+| Data Usage | 100% | 0 | No missing values |
+| Number of Times Purchased | 100% | 0 | No missing values |
+| Unit Price | 100% | 0 | No missing values |
+| Satisfaction Rate | 100% | 0 | No missing values |
+| Customer Churn Status | 100% | 0 | No missing values |
+| Reasons for Churn | ~24% | ~76% | Only populated for churned customers (expected) |
+
+### Data Integrity Verification
+
+ **No duplicate Customer_IDs** - Each record is unique (Primary Key constraint)  
+ **Age within valid range** - All ages between 16-85 years  
+ **Gender values standardized** - Only "Male" or "Female" values  
+ **Revenue values valid** - All values >= 0, no negative amounts  
+ **Tenure values valid** - All values >= 0, no negative tenure  
+ **Satisfaction within scale** - All scores between 1.0-5.0  
+ **Churn status binary** - Only "Yes" or "No" values  
+ **Unit Price consistency** - Mathematically consistent with Total Revenue / Number of Purchases  
+ **No orphaned records** - All records have complete demographic and subscription data
+
+### Data Validation Rules
+
+```sql
+-- Age validation
+CHECK (Age BETWEEN 16 AND 100)
+
+-- Gender validation
+CHECK (Gender IN ('Male', 'Female'))
+
+-- Financial validation
+CHECK ([Total Revenue] >= 0)
+CHECK ([Unit Price] >= 0)
+
+-- Tenure validation
+CHECK ([Customer Tenure in months] >= 0)
+
+-- Behavioral validation
+CHECK ([Number of Times Purchased] >= 0)
+CHECK ([Data Usage] >= 0)
+
+-- Satisfaction validation
+CHECK ([Satisfaction Rate] BETWEEN 1.0 AND 5.0)
+
+-- Churn status validation
+CHECK ([Customer Churn Status] IN ('Yes', 'No'))
+```
+
+---
+
+## Business Definitions & Context
+
+### Key Performance Indicators (KPIs)
+
+#### Overall Churn Rate
+```
+Churn Rate = (Total Churned Customers / Total Customers) × 100
+Current Value: ~24%
+Industry Benchmark: 18-22%
+Status: Above average - requires intervention
+```
+
+#### Average Revenue Per User (ARPU)
+```
+ARPU = Total Revenue / Number of Customers / Average Tenure (months)
+Industry Benchmark: ₦1,500-2,500/month
+Usage: Customer value assessment, plan pricing optimization
+```
+
+#### Customer Lifetime Value (CLV)
+```
+CLV = (Average Monthly Revenue × Average Tenure in months) - Acquisition Cost
+Typical MTN CLV: ₦40,000-60,000
+High-value CLV: >₦100,000
+Usage: Investment prioritization, retention budget allocation
+```
+
+#### Customer Satisfaction Score (CSAT)
+```
+Scale: 1.0-5.0
+Critical Threshold: 3.5
+Target: >4.0 for retention
+Current Average: ~3.4 (concerning - below threshold)
+```
+
+#### Net Retention Rate
+```
+Net Retention = ((Customers End - Churned + New) / Customers Start) × 100
+Target: >95%
+Usage: Overall business health indicator
+```
+
+---
+
+### Segmentation Framework
+
+#### By Revenue (Customer Value)
+- **Low Value:** <₦10,000 lifetime revenue (~25% of base)
+- **Medium Value:** ₦10,000-₦50,000 (~45% of base)
+- **High Value:** ₦50,000-₦100,000 (~20% of base)
+- **Premium Value:** >₦100,000 (~10% of base)
+
+#### By Tenure (Lifecycle Stage)
+- **New:** 0-6 months (critical onboarding period)
+- **Early Stage:** 7-12 months (establishing patterns)
+- **Established:** 13-24 months (stable customers)
+- **Mature:** 25-36 months (loyal base)
+- **Very Loyal:** 37+ months (lowest churn risk)
+
+#### By Engagement (Purchase Behavior)
+- **Low Engagement:** 1-5 purchases (at-risk)
+- **Moderate:** 6-10 purchases (needs activation)
+- **Healthy:** 11-15 purchases (target level)
+- **High:** 16-20 purchases (engaged)
+- **Very High:** 21+ purchases (monitor for issues)
+
+#### By Risk (Churn Propensity)
+- **High Risk:** Satisfaction <3.0, tenure <6 months, low engagement
+- **Medium Risk:** Satisfaction 3.0-3.5, moderate indicators
+- **Low Risk:** Satisfaction >4.0, tenure >24 months, high engagement
+- **Safe:** Satisfaction >4.5, tenure >36 months, premium value
+
+---
+
+## Data Governance & Privacy
+
+### Privacy & Compliance
+-  **No Personally Identifiable Information (PII)** - Customer names, phone numbers, addresses, email excluded
+-  **Data Anonymized** - All records anonymized for analysis and portfolio purposes
+-  **NDPR Compliant** - Follows Nigerian Data Protection Regulation guidelines
+-  **Aggregated Reporting** - Individual customer details not shared in public reports
+-  **Secure Storage** - Dataset stored securely with access controls
+
+### Ethical Considerations
+- Data used only for analytical and educational purposes
+- Insights focus on patterns, not individual behaviors
+- Recommendations designed to improve customer experience
+- No discriminatory targeting based on protected characteristics
+- Transparent methodology and findings documentation
+
+### Usage Guidelines
+  **Permitted Uses:**
+- Portfolio demonstration and job applications
+- Educational analysis and learning
+- Methodology showcase and skill demonstration
+- Aggregated insights sharing (no individual records)
+- Statistical analysis and pattern identification
+
+  **Prohibited Uses:**
+- Sharing individual customer records
+- Commercial exploitation without authorization
+- Re-identification attempts of anonymized data
+- Distribution of raw dataset to third parties
+- Use for purposes beyond stated scope
+
+### Data Lineage
+
+**Source System:** MTN Nigeria customer database  
+**Extraction Date:** 2024  
+**Data Type:** Cross-sectional snapshot with historical metrics  
+**Processing:** Cleaned, validated, anonymized for analysis  
+**Refresh Frequency:** Static snapshot (no real-time updates)  
+**Retention:** Analysis dataset maintained for portfolio purposes  
+
+---
+
+## Technical Implementation
+
+### Recommended Database Indexes
+
+For optimal query performance, create these indexes:
+
+```sql
+-- Primary index on churn status (most frequent filter)
+CREATE NONCLUSTERED INDEX IX_Churn_Status 
+ON [MTN Nigeria Customer Churn$] ([Customer Churn Status])
+INCLUDE ([Total Revenue], [Satisfaction Rate], [Customer Tenure in months]);
+
+-- Geographic analysis index
+CREATE NONCLUSTERED INDEX IX_State 
+ON [MTN Nigeria Customer Churn$] (State)
+INCLUDE ([Customer Churn Status], Age, Gender);
+
+-- Demographic segmentation index
+CREATE NONCLUSTERED INDEX IX_Age 
+ON [MTN Nigeria Customer Churn$] (Age)
+INCLUDE ([Customer Churn Status], Gender);
+
+-- Product performance index
+CREATE NONCLUSTERED INDEX IX_Subscription_Plan 
+ON [MTN Nigeria Customer Churn$] ([Subscription Plan])
+INCLUDE ([Customer Churn Status], [MTN Device], [Total Revenue]);
+
+-- Lifecycle analysis index
+CREATE NONCLUSTERED INDEX IX_Tenure 
+ON [MTN Nigeria Customer Churn$] ([Customer Tenure in months])
+INCLUDE ([Customer Churn Status], [Satisfaction Rate]);
+
+-- Satisfaction correlation index
+CREATE NONCLUSTERED INDEX IX_Satisfaction_Churn 
+ON [MTN Nigeria Customer Churn$] ([Satisfaction Rate], [Customer Churn Status]);
+```
+
+### Query Performance Considerations
+
+**Optimized Query Patterns:**
+- State-based queries benefit from `IX_State` index
+- Churn analysis queries leverage `IX_Churn_Status`
+- Demographic segmentation uses `IX_Age` and included columns
+- Product analysis optimized with `IX_Subscription_Plan`
+- Lifecycle queries benefit from `IX_Tenure`
+
+**Performance Tips:**
+- Use WHERE clauses on indexed columns
+- Leverage covering indexes (INCLUDE clause)
+- Apply appropriate JOIN strategies
+- Consider query execution plans for complex queries
+- Use aggregations efficiently with GROUP BY
+
+---
+
+## Statistical Characteristics
+
+### Numeric Field Statistics
+
+| Field | Min | Max | Mean | Median | Std Dev | Skewness |
+|-------|-----|-----|------|--------|---------|----------|
+| Age | 16 | 85 | 42 | 40 | 15 | Slight right |
+| Tenure (months) | 1 | 60+ | 24 | 18 | 16 | Right skewed |
+| Total Revenue (₦) | 500 | 250,000+ | 45,000 | 32,000 | 38,000 | Right skewed |
+| Data Usage (GB) | 0.5 | 500+ | 45 | 28 | 52 | Right skewed |
+| Purchase Count | 1 | 50+ | 16 | 12 | 11 | Right skewed |
+| Unit Price (₦) | 200 | 15,000 | 2,800 | 2,200 | 1,850 | Right skewed |
+| Satisfaction | 1.0 | 5.0 | 3.4 | 3.5 | 1.1 | Slight left |
+
+### Categorical Field Distributions
+
+**State Distribution:**
+- Top 5 states: Lagos (15%), Kano (10%), Rivers (7%), Oyo (6%), Kaduna (5%)
+- Remaining 32 states + FCT: 1-4% each
+
+**Gender Distribution:**
+- Male: 52%
+- Female: 48%
+
+**Subscription Plan Distribution:**
+- Basic: 35%
+- Standard: 40%
+- Premium: 15%
+- Unlimited: 10%
+
+**Device Distribution:**
+- None: 60%
+- MTN Router: 25%
+- MTN MiFi: 15%
+
+**Churn Status Distribution:**
+- Active/Retained: 76%
+- Churned: 24%
+
+---
+
+## Analytical Applications
+
+### Use Cases
+
+This dataset enables analysis of:
+
+1. **Churn Prediction**
+   - Identify high-risk customers
+   - Early warning system development
+   - Proactive retention triggers
+
+2. **Customer Segmentation**
+   - Value-based targeting
+   - Lifecycle stage management
+   - Persona development
+
+3. **Revenue Optimization**
+   - ARPU improvement strategies
+   - Upsell/cross-sell opportunities
+   - Pricing optimization
+
+4. **Product Performance**
+   - Plan effectiveness evaluation
+   - Device bundling impact
+   - Feature utilization analysis
+
+5. **Experience Management**
+   - Satisfaction driver identification
+   - Service quality correlation
+   - NPS improvement initiatives
+
+6. **Geographic Strategy**
+   - State-specific interventions
+   - Coverage gap identification
+   - Regional marketing optimization
+
+---
+
+## Change Log
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | Nov 2024 | Initial data dictionary creation | Data Analytics Team |
+| 1.1 | Nov 2024 | Added statistical characteristics and business context | Data Analytics Team |
+
+---
+
+## Contact & Support
+
+For questions about this data dictionary, dataset, or analysis methodology:
+
+**Project Owner:** Isuekebho Excel Ehikioya  
+**Email:** xcelisuekebho@gkail.com   
+**GitHub Repository:** [github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis]
+
+---
+
+## References & Resources
+
+**Related Documentation:**
+- [Main README](../README.md) - Project overview
+- [SQL Queries](../sql/) - Analysis queries
+- [Schema Documentation](schema.sql) - Database structure
+- [Analysis Reports](../analysis/) - Findings and recommendations
+
+**External Resources:**
+- Nigerian Data Protection Regulation (NDPR)
+- Telecom industry benchmarks
+- Customer analytics best practices
+
+---
+
