@@ -39,25 +39,17 @@ This folder contains the interactive Power BI dashboard and key visualization ex
 ![Dashboard Overview](dashboard_overview.png)
 *Main executive dashboard showing key churn metrics and trends*
 
-### Demographic Analysis
+### Demographic & Geographic Analysis
 ![Demographics](demographic_analysis.png)
 *Churn patterns by age, gender, and geographic location*
 
-### Revenue Impact
+### Revenue Impact 
 ![Revenue Analysis](revenue_impact.png)
 *Financial impact visualization and customer value segmentation*
-
-### Geographic Distribution
-![Churn by State](churn_by_state.png)
-*Nigerian state-level churn rate heatmap*
 
 ### Satisfaction Analysis
 ![Satisfaction](satisfaction_analysis.png)
 *Customer satisfaction correlation with churn behavior*
-
-### Interactive Features
-![Interactive Filters](interactive_features.png)
-*Demonstration of dashboard filtering and drill-through capabilities*
 
 ---
 
