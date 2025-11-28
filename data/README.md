@@ -35,7 +35,6 @@
 - [Repository Structure](#-repository-structure)
 - [How to Use](#-how-to-use-this-repository)
 - [Skills Demonstrated](#-skills-demonstrated)
-- [Connect With Me](#-connect-with-me)
 
 ---
 
