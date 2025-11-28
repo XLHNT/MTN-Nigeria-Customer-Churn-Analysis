@@ -18,7 +18,14 @@ All visualizations follow these principles:
 - Professional color schemes
 - Labeled axes and data points
 - Executive-ready quality
-- Mobile-friendly formats
+
+  ##  Interactive Power BI Dashboard
+
+###  [**DOWNLOAD POWER BI DASHBOARD (.pbix)**](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/refs/heads/main/data/visualizations/MTN%20Nigeria%20Customer%20Churn.pbix)
+
+**Requirements:** [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Free download from Microsoft)
+
+---
 
 ## Tools Used
 
