@@ -22,8 +22,8 @@ All visualizations follow these principles:
 
 ## Tools Used
 
-- Microsoft Excel for chart creation
-- Power BI for dashboard design
+- Power BI Desktop for all visualizations and dashboards
+- SQL Server for data analysis and aggregation
 
 ## How to View
 
