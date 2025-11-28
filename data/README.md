@@ -7,6 +7,20 @@
 
 ---
 
+##  Quick Links
+
+| Resource | Description |
+|----------|-------------|
+|  [**Download Power BI Dashboard**](https://github.com/XLHNT/MTN-Nigeria-Customer-Churn-Analysis/raw/main/visualizations/your-filename.pbix) | Interactive dashboard with full analysis |
+|  [**View Live Dashboard Online**](https://app.powerbi.com/links/8-S8RimuXt?ctid=b61d2979-8126-486f-b13f-5007573345f0&pbi_source=linkShare) | Online dashboard with full analysis - no download required |
+|  [View Dashboard Screenshots](visualizations/) | Preview dashboard without download |
+|  [SQL Queries](sql/) | All analysis queries |
+|  [Full Analysis Report](analysis/analytical_report.md) | Comprehensive findings |
+|  [Data Dictionary](data/data_dictionary.md) | Dataset documentation |
+
+---
+
+
 ##  Project Overview
 
 **Business Challenge:** MTN Nigeria, one of Africa's leading telecommunications providers, experienced increasing customer churn threatening revenue stability in Nigeria's highly competitive telecom market with 4 major operators.
