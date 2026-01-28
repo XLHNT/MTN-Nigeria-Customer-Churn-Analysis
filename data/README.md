@@ -110,7 +110,7 @@ Customer database from MTN Nigeria covering comprehensive customer profiles, beh
 
 | Attribute | Details |
 |-----------|---------|
-| **Total Records** | 50,000+ customers |
+| **Total Records** | 970+ customers |
 | **Time Period** | Historical snapshot with tenure data |
 | **Geographic Coverage** | All 36 Nigerian states + FCT |
 | **Key Dimensions** | Demographics, Subscriptions, Behavior, Satisfaction, Revenue |
