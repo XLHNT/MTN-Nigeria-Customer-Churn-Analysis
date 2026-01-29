@@ -7,9 +7,9 @@
 
 **Table Name:** `MTN Nigeria Customer Churn$`  
 **Database:** `MTN Nigeria Customer Churn`  
-**Total Records:** 50,000+ customer records  
+**Total Records:** 970+ customer records  
 **Purpose:** Comprehensive customer profile and churn analysis  
-**Last Updated:** November 2024
+**Last Updated:** November 2025
 
 ---
 
@@ -484,7 +484,7 @@ Usage: Overall business health indicator
 ### Data Lineage
 
 **Source System:** MTN Nigeria customer database  
-**Extraction Date:** 2024  
+**Extraction Date:** 2025  
 **Data Type:** Cross-sectional snapshot with historical metrics  
 **Processing:** Cleaned, validated, anonymized for analysis  
 **Refresh Frequency:** Static snapshot (no real-time updates)  
@@ -628,10 +628,10 @@ This dataset enables analysis of:
 
 ## Change Log
 
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | Nov 2024 | Initial data dictionary creation | Data Analytics Team |
-| 1.1 | Nov 2024 | Added statistical characteristics and business context | Data Analytics Team |
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0 | Nov 2025 | Initial data dictionary creation |
+| 1.1 | Nov 2025 | Added statistical characteristics and business context |
 
 ---
 
