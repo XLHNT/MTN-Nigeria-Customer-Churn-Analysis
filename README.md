@@ -1,3 +1,1 @@
-# MTN-Nigeria-Customer-Churn-Analysis
-End-to-end analytics project analyzing 970+ customer records to identify churn drivers and retention opportunities. Comprehensive 8-dimensional analysis with actionable insights and executive dashboard.  
 
